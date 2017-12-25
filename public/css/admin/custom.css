@@ -1,0 +1,29 @@
+.invalid{
+	color:red;
+}
+
+.
+.login_blog .btn-primary{
+ background-color: #7dc425;
+    border-color: #7dc425;
+}
+.login_blog .btn-primary:hover, .login_blog .btn-primary:active{
+ background-color: #7dc425;
+    border-color: #7dc425;
+}
+.login_blog .form-group{
+ margin-left:0px;
+ margin-right: 0px;
+}
+.login_blog .form-control-feedback{
+ right: 0 !important;
+}
+.login_blog{
+ width: 450px;
+ margin: 0 auto;
+ padding-top: 7%;
+}
+.login_blog .login-box-body{
+ box-shadow: 1px 1px 10px 3px #505050;
+ padding: 50px 20px;
+}
