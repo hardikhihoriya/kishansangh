@@ -6,7 +6,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        {{trans('adminlabels.dashboard')}}
+        {{trans('adminlabels.DASHBOARD')}}
     </h1>
 </section>
 

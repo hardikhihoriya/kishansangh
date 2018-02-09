@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="{{url('admin/dashboard')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">{{trans('adminlabels.app_short_name')}}</span>
+      <span class="logo-mini">{{trans('adminlabels.APP_SHORT_NAME')}}</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">{{trans('adminlabels.app_name')}}</span>
+      <span class="logo-lg">{{trans('adminlabels.APP_NAME')}}</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->

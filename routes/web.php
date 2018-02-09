@@ -1,15 +1,15 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,3 +31,9 @@ Route::get('password/reset/{token?}', ['as' => 'password.reset.token', 'uses' =>
 Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\ResetPasswordController@reset']);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// User Module
+Route::post('/admin/sanghusers/list', 'Admin\UsersController@list');
+Route::get('/admin/sanghusers/edit/{id}', array('as' => 'user.edit', 'uses' => 'Admin\UsersController@edit'));
+Route::post('/admin/sanghusers/save', 'Admin\UsersController@save');
+Route::get('/admin/sanghusers', 'Admin\UsersController@get');

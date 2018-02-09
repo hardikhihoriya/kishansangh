@@ -9,7 +9,16 @@
             </div>
         </div>
         <ul class="sidebar-menu">
-            <li class="header"><center>=================================</center></li>            
+            <li class="header"><center>=================================</center></li>
+            <li class="{{ (Request::is('admin/users')) ? 'active treeview' : 'treeview' }}">
+                <a href="{{url('admin/sanghusers')}}">
+                    <i class="fa fa-user"></i>
+                    <span>
+                        {{trans('adminlabels.USER_MANAGEMENT')}}
+                    </span>
+                </a>    
+            </li>
+
         </ul>
     </section>
 </aside>

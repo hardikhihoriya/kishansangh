@@ -1,25 +1,27 @@
 <?php
 
-return[
+return
+[
     /*
       |--------------------------------------------------------------------------
       | Admin labels line
       |--------------------------------------------------------------------------
      */
 
-    'title' => 'Khedut Pay',
-    'app_name' => 'Khedut Pay',
-    'app_short_name' => 'Pay',
-    'edit' => 'Edit',
-    'create' => 'Create',
-    'submit' => 'Submit',
-    'cancel' => 'Cancel',
-    'name' => 'Name',
-    'add' => 'Add',
-    'select_name' => 'Select Name',
+    'TITLE' => 'Khedut Pay',
+    'APP_NAME' => 'Khedut Pay',
+    'APP_SHORT_NAME' => 'Pay',
+    'EDIT' => 'Edit',
+    'CREATE' => 'Create',
+    'SUBMIT' => 'Submit',
+    'CANCEL' => 'Cancel',
+    'ADD' => 'Add',
     /*
      * Dashboard List labels
      */
-    'dashboard' => 'Dashboard',
-        ]
-?>
+    'DASHBOARD' => 'Dashboard',
+    /**
+     * User Management
+     */
+    'USER_MANAGEMENT' => 'User Management',
+];
