@@ -6,6 +6,9 @@
     <h1>
         {{trans('adminlabels.USER_MANAGEMENT')}}
         <small>{{trans('adminlabels.USERS')}}</small>
+        <div class="pull-right">
+            <a href="{{ url('admin/sanghusers/new') }}" class="btn btn-default pull-right-responsive"><span><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;</span>{{trans('adminlabels.REGISTER_USER')}}</a>
+        </div>       
     </h1>
 </section>
 
@@ -20,11 +23,14 @@
                     <table id="listUser" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>{{trans('adminlabels.USER_UNIQUE_NO')}}</th>
                                 <th>{{trans('adminlabels.USER_NAME')}}</th>
                                 <th>{{trans('adminlabels.USER_EMAIL')}}</th>
                                 <th>{{trans('adminlabels.USER_PHONE')}}</th>
+                                <th>{{trans('adminlabels.USER_BIRTH_DAY')}}</th>
+                                <th>{{trans('adminlabels.USER_GENDER')}}</th>
                                 <th>{{trans('adminlabels.USER_PHOTO')}}</th>
-                                <th>{{trans('adminlabels.USER_ACTION')}}</th>
+                                <th>{{trans('adminlabels.ACTION')}}</th>
                             </tr>
                         </thead>
                     </table>
@@ -47,7 +53,7 @@
             "serverSide": true,
             "destroy": true,
             "ajax": {
-                "url": "{{ url('admin/sanghusers/list') }}",
+                "url": "{{ url('admin/sanghusers/list-ajax') }}",
                 "dataType": "json",
                 "type": "POST",
                 headers: {
@@ -63,9 +69,12 @@
                 }
             },
             "columns": [
+                {"data": "registration_no"},
                 {"data": "name"},
                 {"data": "email"},
-                {"data": "phone"},
+                {"data": "phone_no"},
+                {"data": "birth_date"},
+                {"data": "gender"},
                 {"data": "user_pic", "orderable": false},
                 {"data": "action", "orderable": false}
             ],

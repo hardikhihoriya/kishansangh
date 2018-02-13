@@ -24,31 +24,31 @@ class UserTableSeeder extends Seeder {
         $vendor_user = new User();
         $customer_user = new User();
         //Add super admin with super admin role. We can also assign other roles also
-        $super_admin_user->name = 'Super Admin';
+        $super_admin_user->first_name = 'Super Admin';
         $super_admin_user->email = 'superadmin@gmail.com';
         $super_admin_user->password = bcrypt('secret');
         $super_admin_user->save();
         $super_admin_user->roles()->attach($super_admin);
         //Add admin with admin role. We can also assign other roles also
-        $admin_user->name = 'Admin User';
+        $admin_user->first_name = 'Admin User';
         $admin_user->email = 'admin@gmail.com';
         $admin_user->password = bcrypt('secret');
         $admin_user->save();
         $admin_user->roles()->attach($admin);
         //Add agent with agent role. We can also assign other roles also
-        $agent_user->name = 'Agent User';
+        $agent_user->first_name = 'Agent User';
         $agent_user->email = 'agent@gmail.com';
         $agent_user->password = bcrypt('secret');
         $agent_user->save();
         $agent_user->roles()->attach($agent);
         //Add vendor with vendor role. We can also assign other roles also
-        $vendor_user->name = 'Vendor User';
+        $vendor_user->first_name = 'Vendor User';
         $vendor_user->email = 'vendor@gmail.com';
         $vendor_user->password = bcrypt('secret');
         $vendor_user->save();
         $vendor_user->roles()->attach($vendor);
         //Add customer with customer role. We can also assign other roles also
-        $customer_user->name = 'Customer User';
+        $customer_user->first_name = 'Customer User';
         $customer_user->email = 'customer@gmail.com';
         $customer_user->password = bcrypt('secret');
         $customer_user->save();

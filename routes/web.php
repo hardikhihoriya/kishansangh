@@ -33,7 +33,9 @@ Route::post('password/reset', ['as' => 'password.reset.post', 'uses' => 'Auth\Re
 Route::get('/home', 'HomeController@index')->name('home');
 
 // User Module
-Route::post('/admin/sanghusers/list', 'Admin\UsersController@list');
-Route::get('/admin/sanghusers/edit/{id}', array('as' => 'user.edit', 'uses' => 'Admin\UsersController@edit'));
-Route::post('/admin/sanghusers/save', 'Admin\UsersController@save');
-Route::get('/admin/sanghusers', 'Admin\UsersController@get');
+Route::get('/admin/sanghusers', 'Admin\UserController@index');
+Route::post('/admin/sanghusers/list-ajax', 'Admin\UserController@listAjax');
+Route::any('/admin/sanghusers/new', 'Admin\UserController@create');
+Route::any('/admin/sanghusers/user-{id}', array('as' => 'user.edit', 'uses' => 'Admin\UserController@update'));
+Route::post('/admin/sanghusers/set', 'Admin\UserController@set');
+
