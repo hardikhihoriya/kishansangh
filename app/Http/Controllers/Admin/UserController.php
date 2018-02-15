@@ -214,14 +214,17 @@ class UserController extends Controller {
             }
 
             if (isset($request->id) && $request->id > 0) {
+                $postData['marriage_anniversary_date'] = ($postData['married'] == 'no' ? null : $postData['marriage_anniversary_date']);
                 $user->update(array_filter($postData));
                 $user->save();
                 DB::commit();
                 return Redirect::to("/admin/sanghusers/")->with('success', trans('adminmsg.USER_UPDATED_SUCCESS_MSG'));
             } else {
                 $userModel = new User();
-                $postData['registration_no'] = $userModel->generateRegistrationNo();
+                $postData['registration_no'] = $userModel->generateRegistrationNo($postData);
                 $postData['password'] = bcrypt(str_random(8));
+                $postData['marriage_anniversary_date'] = ($postData['married'] == 'no' ? null : $postData['marriage_anniversary_date']);
+                
                 $user = new User(array_filter($postData));
                 $user->save();
                 // Assign role

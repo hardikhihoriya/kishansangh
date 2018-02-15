@@ -90,7 +90,7 @@ class User extends Authenticatable
         return $query->orWhere('gender', 'LIKE', "%$value%");
     }
     
-    public function generateRegistrationNo() {
-        return strtoupper($this->middle_name[0]) . strtoupper($this->first_name[0]) . strtoupper($this->last_name[0]) . str_random(5) . date('H'). str_random(5) . date('i'). str_random(5) . date('s') . substr($this->phone_no, -1, 4);
+    public function generateRegistrationNo($postData) {
+        return strtoupper($postData['middle_name'][0]) . strtoupper($postData['first_name'][0]) . strtoupper($postData['last_name'][0]) . str_random(5) . date('H'). str_random(5) . date('i'). str_random(5) . date('s') . substr($postData['phone_no'], -4);
     }
 }

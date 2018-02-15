@@ -113,7 +113,14 @@
                             </div>
                             
                             <!-- Anniversary Date -->
-                            <div id="anniversaryDate"></div>
+                            <div id="anniversaryDate" class="form-group">
+                                <?php if($user->id && $married == 'yes') { ?>
+                                <label for="marriage_anniversary_date" class="col-md-2 control-label"> {{ trans('adminlabels.ANNIVERSARY_DATE') }} </label>
+                                <div class="col-md-6">
+                                    <input type='text' class='form-control datetimepicker' id='marriage_anniversary_date' name='marriage_anniversary_date' value='{{ (old('marriage_anniversary_date') ? old('marriage_anniversary_date') : $user->marriage_anniversary_date) }}'>
+                                </div>
+                                <?php } ?>
+                            </div>
                             
                             <!-- User Image -->
                             <div class="form-group">
@@ -212,7 +219,7 @@
 <script type="text/javascript" src="{{ asset('js/admin/bootstrap-datetimepicker.min.js') }}"></script>
 <script>
     jQuery(document).ready(function () {
-        $('#birth_date').datetimepicker({
+        $('#birth_date,#marriage_anniversary_date').datetimepicker({
             'format': 'YYYY-MM-DD'
         });
         
@@ -224,6 +231,8 @@
             e.preventDefault();
             return false;
         });
+        
+        var isMarriedVal = ($('input[type=radio][name=married]:checked', '#registerUser').val() == 'yes' ? true : false);
 
         // Add Anniversary Date Row
         $('input[type=radio][name=married]').change(function() {
@@ -244,7 +253,77 @@
                     return false;
                 });
             }
+            var isMarriedVal = ($('input[type=radio][name=married]:checked', '#registerUser').val() == 'yes' ? true : false);
         });
+
+        $("#registerUser").validate({
+            ignore: ":hidden:not(select)",
+            rules: {
+                first_name: {
+                    required: true,
+                    maxlength: 100
+                },
+                middle_name: {
+                    required: true,
+                    maxlength: 100
+                },
+                last_name: {
+                    required: true,
+                    maxlength: 100
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    maxlength: 100
+                },
+                phone_no: {
+                    required: true,
+                    digits:true,
+                    maxlength: 10
+                },
+                birth_date: {
+                    required: true
+                },
+                gender: {
+                    required: true
+                },
+                address: {
+                    required: true,
+                    maxlength: 500
+                },
+                zipcode: {
+                    required: true,
+                    digits:true,
+                    maxlength:6
+                },
+                married: {
+                    required: true
+                },
+                user_pic: {
+                    extension: "png|jpeg|jpg|bmp"
+                },
+                signature: {
+                    extension: "png|jpeg|jpg|bmp"
+                },
+                bank_name: {
+                    required: true,
+                    maxlength: 100
+                },
+                account_no: {
+                    required: true,
+                    digits: true,
+                    maxlength: 20
+                },
+                ifsc_code: {
+                    required: true,
+                    maxlength: 15
+                },
+                marriage_anniversary_date: {
+                    required: isMarriedVal
+                }
+            }
+        });
+        
     });
 </script>
 @endsection
