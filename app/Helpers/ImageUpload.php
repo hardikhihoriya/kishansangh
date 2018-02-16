@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Helpers;
+use File;
+use Image;
 
 Class ImageUpload {
     

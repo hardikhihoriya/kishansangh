@@ -19,6 +19,8 @@ return
     'ACTION' => 'Action',
     'YES' => 'Yes',
     'NO' => 'No',
+    'SUCCESS' => 'Success',
+    'ERROR' => 'Error',
     /*
      * Dashboard List labels
      */

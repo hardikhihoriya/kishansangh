@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Config;
-use ImageUpload;
+use App\Helpers\ImageUpload;
 use App\User;
 use App\Role;
 use Redirect;
@@ -200,7 +200,7 @@ class UserController extends Controller {
             // Upload Signature
             if (!empty($request->file('signature')) && $request->file('signature')->isValid()) {
                 $params = [
-                    'originalPath' => public_path($this->userOriginalImageUploadPath),
+                    'originalPath' => public_path($this->userSignOriginalImageUploadPath),
                     'previousImage' => $request->hidden_user_sign
                 ];
                 $signature = ImageUpload::uploadImage($request->file('signature'), $params);
