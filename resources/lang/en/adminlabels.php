@@ -21,6 +21,7 @@ return
     'NO' => 'No',
     'SUCCESS' => 'Success',
     'ERROR' => 'Error',
+    'LOGOUT' => 'Logout',
     /*
      * Dashboard List labels
      */

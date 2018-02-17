@@ -12,6 +12,7 @@ use Redirect;
 use File;
 use Response;
 use DB;
+use Log;
 
 class UserController extends Controller {
     
@@ -130,6 +131,7 @@ class UserController extends Controller {
      * Create controller
      */
     public function create() {
+        Log::info('New Registration Start.');
         return $this->_update();
     }
 
@@ -139,11 +141,11 @@ class UserController extends Controller {
      */
     public function update($id) {
         $user = User::find($id);
-        
+        Log::info('Updating User #'.$id.'.');
         if(!$user) {
+            Log::info('User with #'.$id.' not found.');
             return Redirect::to("/admin/sanghusers/")->with('error', trans('adminmsg.USER_NOT_EXIST'));
         }
-
         return $this->_update($user);
     }
 
@@ -218,6 +220,7 @@ class UserController extends Controller {
                 $user->update(array_filter($postData));
                 $user->save();
                 DB::commit();
+                Log::info('User information saved successfully.');
                 return Redirect::to("/admin/sanghusers/")->with('success', trans('adminmsg.USER_UPDATED_SUCCESS_MSG'));
             } else {
                 $userModel = new User();
@@ -232,6 +235,7 @@ class UserController extends Controller {
                     $user->roles()->attach($_roles);
                 }
                 DB::commit();
+                Log::info('User information updated successfully.');
                 return Redirect::to("/admin/sanghusers/")->with('success', trans('adminmsg.USER_CREATED_SUCCESS_MSG'));  
             }
         } catch (Exception $e) {

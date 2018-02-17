@@ -87,9 +87,9 @@
 
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
-                    <b>Version</b> 1.0.1
+                    COPYRIGHT &copy; {{date('Y')}} | ALL RIGHTS RESERVED.
                 </div>
-                <strong>Copyright</strong>
+                <strong>&nbsp;</strong>
             </footer>
 
             @include('layouts/admin-right-sidebar')
