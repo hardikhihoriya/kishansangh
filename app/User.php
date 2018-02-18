@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -67,30 +68,35 @@ class User extends Authenticatable
     }
     
     public function scopeSearchName($query, $value) {
-        return $query->Where(concat_ws(' ',first_name, middle_name, last_name), 'LIKE', "%$value%");
+        return $query->Where(DB::raw('CONCAT(first_name," ", middle_name," ", last_name)') , 'LIKE' , "%$value%");
     }
 
-    public function scopeRegistrationNo($query, $value) {
+    public function scopeSearchRegistrationNo($query, $value) {
         return $query->orWhere('registration_no', 'LIKE', "%$value%");
     }
     
-    public function scopeEmail($query, $value) {
+    public function scopeSearchEmail($query, $value) {
         return $query->orWhere('email', 'LIKE', "%$value%");
     }
 
-    public function scopePhone($query, $value) {
+    public function scopeSearchPhone($query, $value) {
         return $query->orWhere('phone_no', 'LIKE', "%$value%");
     }
 
-    public function scopeBirthDate($query, $value) {
+    public function scopeSearchBirthDate($query, $value) {
         return $query->orWhere('birth_date', 'LIKE', "%$value%");
     }
 
-    public function scopeGender($query, $value) {
+    public function scopeSearchGender($query, $value) {
         return $query->orWhere('gender', 'LIKE', "%$value%");
     }
     
+    public function scopeSearchWalletAmount($query, $value) {
+        return $query->orWhere('customer_wallet', 'LIKE', "%$value%");
+    }
+
     public function generateRegistrationNo($postData) {
         return strtoupper($postData['middle_name'][0]) . strtoupper($postData['first_name'][0]) . strtoupper($postData['last_name'][0]) . str_random(5) . date('H'). str_random(5) . date('i'). str_random(5) . date('s') . substr($postData['phone_no'], -4);
     }
+    
 }

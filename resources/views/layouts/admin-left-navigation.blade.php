@@ -17,15 +17,27 @@
                     </span>
                 </a>    
             </li>
-            <li class="{{ (Request::is('admin/sanghusers')) ? 'active treeview' : 'treeview' }}">
-                <a href="{{url('admin/sanghusers')}}">
-                    <i class="fa fa-user"></i>
+
+            <li class="{{ (Request::is('admin/sanghusers') || (Request::is('admin/sanghusers/new')) || Request::is('admin/customer') || Request::is('admin/customer/new') || Request::is('admin/vendor') || Request::is('admin/vendor/new')) ? 'active treeview' : 'treeview' }}">
+                <a href="{{url('admin/sanghusers')}}" style="word-break: break-word !important;white-space: initial;">
+                    <i class="fa fa-diamond"></i>
                     <span>
                         {{trans('adminlabels.USER_MANAGEMENT')}}
                     </span>
-                </a>    
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ Request::is('admin/sanghusers') || (Request::is('admin/sanghusers/new')) ? 'active' : '' }}">
+                        <a href="{{url('admin/sanghusers')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.USERS')}}</a>
+                    </li>
+                    <li class="{{ Request::is('admin/customer') || Request::is('admin/customer') ? 'active' : '' }}">
+                        <a href="{{url('admin/customer')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.CUSTOMERS')}}</a>
+                    </li>
+                    <li class="{{ Request::is('admin/vendor') || Request::is('admin/vendor/new') ? 'active' : '' }}">
+                        <a href="{{url('admin/vendor')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.VENDORS')}}</a>
+                    </li>
+                </ul>
             </li>
-
         </ul>
     </section>
 </aside>

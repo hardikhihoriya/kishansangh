@@ -5,10 +5,32 @@ return [
     'ACTIVE_FLAG' => 'active',
     'INACTIVE_FLAG' => 'inactive',
     'DELETED_FLAG' => 'deleted',
+    
+    // Role
+    'SUPER_ADMIN' => 1,
+    'ADMIN' => 2,
+    'AGENT' => 3,
+    'VENDOR' => 4,
+    'CUSTOMER' => 5,
+    
     'USER_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/user/original/',
     'USER_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/user/thumb/',
     'USER_THUMB_IMAGE_HEIGHT' => '500',
     'USER_THUMB_IMAGE_WIDTH' => '500',   
     'USER_SIGN_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/user/sign/',
     
+    'CUSTOMER_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/customer/original/',
+    'CUSTOMER_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/customer/thumb/',
+    'CUSTOMER_THUMB_IMAGE_HEIGHT' => '500',
+    'CUSTOMER_THUMB_IMAGE_WIDTH' => '500',   
+
+    'CUSTOMER_PROOF_FRONT_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/customer/originalIDFront/',
+    'CUSTOMER_PROOF_FRONT_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/customer/thumbIDFront/',
+    'CUSTOMER_PROOF_FRONT_THUMB_IMAGE_HEIGHT' => '500',
+    'CUSTOMER_PROOF_FRONT_THUMB_IMAGE_WIDTH' => '500',   
+
+    'CUSTOMER_PROOF_BACK_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/customer/originalIDBack/',
+    'CUSTOMER_PROOF_BACK_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/customer/thumbIDBack/',
+    'CUSTOMER_PROOF_BACK_THUMB_IMAGE_HEIGHT' => '500',
+    'CUSTOMER_PROOF_BACK_THUMB_IMAGE_WIDTH' => '500',   
 ];

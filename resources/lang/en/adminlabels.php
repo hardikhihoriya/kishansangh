@@ -26,6 +26,12 @@ return
      * Dashboard List labels
      */
     'DASHBOARD' => 'Dashboard',
+    'ADMIN_DASHBOARD' => 'Admin Dashboard',
+    'TOTAL_REGISTERATION' => 'Total Registration',
+    'CUSTOMER' => 'Customer',
+    'VENDOR' => 'Vendor',
+    'CUSTOMER_VENDOR' => 'Customer and Vendor',
+    'ALL' => 'All',
     /**
      * User Management
      */
@@ -63,5 +69,21 @@ return
     'IFSC_CODE' => 'IFSC Code',
     'ANNIVERSARY_DATE' => 'Anniversary Date',
     'ASSIGN_ROLES' => 'Assign Role',
+    
+    // Customer Module
+    'CUSTOMER_MANAGEMENT' => 'Customer Management',
+    'CUSTOMER_LIST' => 'Customers List',
+    'ADD_CUSTOMER' => 'Add Customer',
+    'CUSTOMER' => 'Customer',
+    'CUSTOMERS' => 'Customers',
+    'CUSTOMER_WALLET' => 'Wallet Amount',
+    'NOMINEE_NAME' => 'Nominee Name',
+    'NOMINEE_PHOTO' => 'Nominee Photo',
+    'NOMINEE_ID_PROOF_FRONT' => 'ID Card Front Image',
+    'NOMINEE_ID_PROOF_BACK' => 'ID Card Back Image',
+    'SELECT_USER' => 'Select User',
+    
+    // Vendor Module
+    'VENDORS' => 'Vendors',
     
 ];

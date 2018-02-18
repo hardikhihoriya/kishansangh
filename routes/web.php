@@ -39,3 +39,18 @@ Route::any('/admin/sanghusers/new', 'Admin\UserController@create');
 Route::any('/admin/sanghusers/user-{id}', array('as' => 'user.edit', 'uses' => 'Admin\UserController@update'));
 Route::post('/admin/sanghusers/set', 'Admin\UserController@set');
 
+// Customer Module
+Route::get('/admin/customer', 'Admin\CustomerController@index');
+Route::post('/admin/customer/list-ajax', 'Admin\CustomerController@listAjax');
+Route::any('/admin/customer/new', 'Admin\CustomerController@create');
+Route::any('/admin/customer/customer-{id}', array('as' => 'customer.edit', 'uses' => 'Admin\CustomerController@update'));
+Route::post('/admin/customer/set', 'Admin\CustomerController@set');
+
+// Vendor Module
+Route::get('/admin/vendor', 'Admin\VendorController@index');
+Route::post('/admin/vendor/list-ajax', 'Admin\VendorController@listAjax');
+Route::any('/admin/vendor/new', 'Admin\VendorController@create');
+Route::any('/admin/vendor/vendor-{id}', array('as' => 'vendor.edit', 'uses' => 'Admin\VendorController@update'));
+Route::post('/admin/vendor/set', 'Admin\VendorController@set');
+
+

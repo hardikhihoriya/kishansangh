@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Config;
 use App\Helpers\ImageUpload;
+use App\Helpers\Common;
 use App\User;
 use App\Role;
 use Redirect;
 use File;
 use Response;
 use DB;
-use Log;
 
 class UserController extends Controller {
     
@@ -62,7 +62,7 @@ class UserController extends Controller {
             0 => 'registration_no', 
             1 => 'first_name',
             2 => 'email',
-            3 => 'phone',
+            3 => 'phone_no',
             4 => 'birth_date',
             5 => 'gender'
         );
@@ -72,7 +72,7 @@ class UserController extends Controller {
         $records["data"] = array();
         
         //getting records for the users table
-        $iTotalRecords = User::where('deleted', '<>', Config::get('constant.DELETED_FLAG'))->count();
+        $iTotalRecords = Common::getTotalRegistrationCount();
         $iTotalFiltered = $iTotalRecords;
         $iDisplayLength = intval($request->length) <= 0 ? $iTotalRecords : intval($request->length);
         $iDisplayStart = intval($request->start);
@@ -131,7 +131,6 @@ class UserController extends Controller {
      * Create controller
      */
     public function create() {
-        Log::info('New Registration Start.');
         return $this->_update();
     }
 
@@ -141,9 +140,7 @@ class UserController extends Controller {
      */
     public function update($id) {
         $user = User::find($id);
-        Log::info('Updating User #'.$id.'.');
         if(!$user) {
-            Log::info('User with #'.$id.' not found.');
             return Redirect::to("/admin/sanghusers/")->with('error', trans('adminmsg.USER_NOT_EXIST'));
         }
         return $this->_update($user);
@@ -220,7 +217,6 @@ class UserController extends Controller {
                 $user->update(array_filter($postData));
                 $user->save();
                 DB::commit();
-                Log::info('User information saved successfully.');
                 return Redirect::to("/admin/sanghusers/")->with('success', trans('adminmsg.USER_UPDATED_SUCCESS_MSG'));
             } else {
                 $userModel = new User();
@@ -235,7 +231,6 @@ class UserController extends Controller {
                     $user->roles()->attach($_roles);
                 }
                 DB::commit();
-                Log::info('User information updated successfully.');
                 return Redirect::to("/admin/sanghusers/")->with('success', trans('adminmsg.USER_CREATED_SUCCESS_MSG'));  
             }
         } catch (Exception $e) {

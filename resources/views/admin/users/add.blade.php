@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             {{trans('adminlabels.USER_MANAGEMENT')}}
-            <small>{{trans('adminlabels.REGISTER_USER')}}</small>
+            <small>{{trans('adminlabels.USERS')}}</small>
         </h1>     
     </section>
 
@@ -232,8 +232,6 @@
             return false;
         });
         
-        var isMarriedVal = ($('input[type=radio][name=married]:checked', '#registerUser').val() == 'yes' ? true : false);
-
         // Add Anniversary Date Row
         $('input[type=radio][name=married]').change(function() {
             $("#anniversaryDate").html('');
@@ -252,8 +250,10 @@
                     e.preventDefault();
                     return false;
                 });
+                $('input[name="marriage_anniversary_date"]').rules("add", {// <- apply rule to new field
+                    required: true
+                });
             }
-            var isMarriedVal = ($('input[type=radio][name=married]:checked', '#registerUser').val() == 'yes' ? true : false);
         });
 
         $("#registerUser").validate({
@@ -317,9 +317,6 @@
                 ifsc_code: {
                     required: true,
                     maxlength: 15
-                },
-                marriage_anniversary_date: {
-                    required: isMarriedVal
                 }
             }
         });
