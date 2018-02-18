@@ -298,7 +298,7 @@ class CustomerController extends Controller {
             }
         } catch (Exception $e) {
             DB::rollback();
-            return Redirect::to("/admin/sanghusers/")->with('error', trans('adminmsg.COMMON_ERROR_MSG'));
+            return Redirect::to("/admin/customer/")->with('error', trans('adminmsg.COMMON_ERROR_MSG'));
         }
     }
 

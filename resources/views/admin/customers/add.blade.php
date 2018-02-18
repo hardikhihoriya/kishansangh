@@ -143,7 +143,7 @@
                 },
                 nominee_address: {
                     required: true,
-                    maxlength: 100
+                    maxlength: 500
                 },
                 nominee_photo: {
                     required: nomineePhotoRequired,

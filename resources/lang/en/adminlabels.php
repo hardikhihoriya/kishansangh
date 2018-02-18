@@ -84,6 +84,11 @@ return
     'SELECT_USER' => 'Select User',
     
     // Vendor Module
+    'VENDOR_MANAGEMENT' => 'Vendor Management',
+    'VENDOR_LIST' => 'Vendors List',
+    'ADD_VENDOR' => 'Add Vendor',
+    'VENDOR' => 'Vendor',
     'VENDORS' => 'Vendors',
+    'VENDOR_NAME' => 'Vendor Name',
     
 ];

@@ -95,6 +95,10 @@ class User extends Authenticatable
         return $query->orWhere('customer_wallet', 'LIKE', "%$value%");
     }
 
+    public function scopeSearchVendorName($query, $value) {
+        return $query->orWhere('vendor_name', 'LIKE', "%$value%");
+    }
+    
     public function generateRegistrationNo($postData) {
         return strtoupper($postData['middle_name'][0]) . strtoupper($postData['first_name'][0]) . strtoupper($postData['last_name'][0]) . str_random(5) . date('H'). str_random(5) . date('i'). str_random(5) . date('s') . substr($postData['phone_no'], -4);
     }

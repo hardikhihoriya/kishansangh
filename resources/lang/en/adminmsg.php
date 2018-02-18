@@ -27,4 +27,9 @@ return [
     'CUSTOMER_DETAIL_ADDED_SUCCESS_MSG' => 'Nomimee has been created successfully.',
     'CUSTOMER_NOT_EXIST' => 'Customer does not exist.',
     'USER_INACTIVE_DELETE' => 'User inactivated or deleted by admin.',
+    
+    'VENDOR_DETAIL_UPDATED_SUCCESS_MSG' => 'Vendor detail has been updated successfully.',
+    'VENDOR_DETAIL_ADDED_SUCCESS_MSG' => 'Vendor detail has been created successfully.',
+    'VENDOR_NOT_EXIST' => 'Vendor does not exist.',
+    
 ];
