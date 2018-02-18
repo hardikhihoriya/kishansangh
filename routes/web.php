@@ -53,4 +53,9 @@ Route::any('/admin/vendor/new', 'Admin\VendorController@create');
 Route::any('/admin/vendor/vendor-{id}', array('as' => 'vendor.edit', 'uses' => 'Admin\VendorController@update'));
 Route::post('/admin/vendor/set', 'Admin\VendorController@set');
 
-
+// Shop Type Module
+Route::get('/admin/shop-type', 'Admin\ShopTypeController@index');
+Route::post('/admin/shop-type/list-ajax', 'Admin\ShopTypeController@listAjax');
+Route::any('/admin/shop-type/new', 'Admin\ShopTypeController@create');
+Route::any('/admin/shop-type/shop-{id}', array('as' => 'shop-type.edit', 'uses' => 'Admin\ShopTypeController@update'));
+Route::post('/admin/shop-type/set', 'Admin\ShopTypeController@set');

@@ -38,6 +38,20 @@
                     </li>
                 </ul>
             </li>
+            <li class="{{ (Request::is('admin/shop-type') || (Request::is('admin/shop-type/new'))) ? 'active treeview' : 'treeview' }}">
+                <a href="{{url('admin/shop-type')}}" style="word-break: break-word !important;white-space: initial;">
+                    <i class="fa fa-diamond"></i>
+                    <span>
+                        {{trans('adminlabels.SHOP_MANAGEMENT')}}
+                    </span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ Request::is('admin/shop-type') || (Request::is('admin/shop-type/new')) ? 'active' : '' }}">
+                        <a href="{{url('admin/shop-type')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_TYPE')}}</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </section>
 </aside>

@@ -32,4 +32,9 @@ return [
     'VENDOR_DETAIL_ADDED_SUCCESS_MSG' => 'Vendor detail has been created successfully.',
     'VENDOR_NOT_EXIST' => 'Vendor does not exist.',
     
+    'SHOP_TYPE_UPDATED_SUCCESS_MSG' => 'Shop Type has been updated successfully.',
+    'SHOP_TYPE_ADDED_SUCCESS_MSG' => 'Shop Type has been created successfully.',
+    'SHOP_TYPE_NOT_EXIST' => 'Shop Type does not exist.',
+    'SHOP_TYPE_STATUS_UPDATED_SUCCESS' => 'Shop Type status updated successfully.',
+    
 ];

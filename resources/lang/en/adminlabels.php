@@ -90,5 +90,18 @@ return
     'VENDOR' => 'Vendor',
     'VENDORS' => 'Vendors',
     'VENDOR_NAME' => 'Vendor Name',
+
+    // Shop Type Module
+    'SHOP_MANAGEMENT' => 'Shop Management',
+    'SHOP_TYPE_MANAGEMENT' => 'Shop Type Management',
+    'SHOP_TYPE_LIST' => 'Shop Type List',
+    'SHOP_TYPE' => 'Shop Type',
+    'SHOP_TYPES' => 'Shop Types',
+    'ADD_SHOP_TYPE' => 'Add Shop Type',
+    'SHOP_TYPE_NAME' => 'Name',
+    'SHOP_TYPE_DETAIL' => 'Detail',
+    'SHOP_TYPE_ICON' => 'Icon',
+    'SHOP_TYPE_STATUS' => 'Status',
+    'SHOP_TYPE_ICON' => 'Icon',
     
 ];

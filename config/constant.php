@@ -33,4 +33,21 @@ return [
     'CUSTOMER_PROOF_BACK_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/customer/thumbIDBack/',
     'CUSTOMER_PROOF_BACK_THUMB_IMAGE_HEIGHT' => '500',
     'CUSTOMER_PROOF_BACK_THUMB_IMAGE_WIDTH' => '500',   
+
+    'SHOP_TYPE_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/shop-type/original/',
+    'SHOP_TYPE_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/shop-type/thumb/',
+    'SHOP_TYPE_THUMB_IMAGE_HEIGHT' => '500',
+    'SHOP_TYPE_THUMB_IMAGE_WIDTH' => '500',   
+    
+    'STATUS' => [
+        [
+            'value' => 'active',
+            'name' => 'Active'
+        ],
+        [
+            'value' => 'inactive',
+            'name' => 'Inactive'
+        ]
+    ],
+    
 ];
