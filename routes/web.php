@@ -57,5 +57,12 @@ Route::post('/admin/vendor/set', 'Admin\VendorController@set');
 Route::get('/admin/shop-type', 'Admin\ShopTypeController@index');
 Route::post('/admin/shop-type/list-ajax', 'Admin\ShopTypeController@listAjax');
 Route::any('/admin/shop-type/new', 'Admin\ShopTypeController@create');
-Route::any('/admin/shop-type/shop-{id}', array('as' => 'shop-type.edit', 'uses' => 'Admin\ShopTypeController@update'));
+Route::any('/admin/shop-type/shop-type-{id}', array('as' => 'shop-type.edit', 'uses' => 'Admin\ShopTypeController@update'));
 Route::post('/admin/shop-type/set', 'Admin\ShopTypeController@set');
+
+// Shop Marketing Module
+Route::get('/admin/shop-marketing', 'Admin\ShopMarketingController@index');
+Route::post('/admin/shop-marketing/list-ajax', 'Admin\ShopMarketingController@listAjax');
+Route::any('/admin/shop-marketing/new', 'Admin\ShopMarketingController@create');
+Route::any('/admin/shop-marketing/shop-marketing-{id}', array('as' => 'shop-marketing.edit', 'uses' => 'Admin\ShopMarketingController@update'));
+Route::post('/admin/shop-marketing/set', 'Admin\ShopMarketingController@set');

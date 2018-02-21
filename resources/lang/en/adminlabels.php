@@ -102,6 +102,15 @@ return
     'SHOP_TYPE_DETAIL' => 'Detail',
     'SHOP_TYPE_ICON' => 'Icon',
     'SHOP_TYPE_STATUS' => 'Status',
-    'SHOP_TYPE_ICON' => 'Icon',
     
+    // Shop Type Module
+    'SHOP_MARKETING_MANAGEMENT' => 'Shop Marketing Management',
+    'SHOP_MARKETING_LIST' => 'Shop Marketing List',
+    'SHOP_MARKETING' => 'Shop Marketing',
+    'SHOP_MARKETINGS' => 'Shop Marketings',
+    'ADD_SHOP_MARKETING' => 'Add Shop Marketing',
+    'SHOP_MARKETING_NAME' => 'Name',
+    'SHOP_MARKETING_DESCRIPTION' => 'Detail',
+    'SHOP_MARKETING_MEMBER' => 'Member',
+    'SHOP_MARKETING_STATUS' => 'Status',
 ];

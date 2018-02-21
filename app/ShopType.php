@@ -30,6 +30,10 @@ class ShopType extends Model
         return $query->orWhere('shop_type_detail', 'LIKE', "%$value%");
     }
     
+    public function scopeSearchShopTypeStatus($query, $value) {
+        return $query->orWhere('status', 'LIKE', "%$value%");
+    }
+
     public static function updateShopTypeStatus($id) {
         try {
             DB::statement(

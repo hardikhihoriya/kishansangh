@@ -51,6 +51,11 @@
                         <a href="{{url('admin/shop-type')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_TYPE')}}</a>
                     </li>
                 </ul>
+                <ul class="treeview-menu">
+                    <li class="{{ Request::is('admin/shop-marketing') || (Request::is('admin/shop-marketing/new')) ? 'active' : '' }}">
+                        <a href="{{url('admin/shop-marketing')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_MARKETING')}}</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </section>

@@ -77,13 +77,15 @@ class ShopTypeController extends Controller
             $val = $search['value'];
             $records["data"]->where(function($query) use ($val) {
                 $query->SearchShopTypeName($val)
-                    ->SearchShopTypeDetail($val);
+                    ->SearchShopTypeDetail($val)
+                    ->scopeSearchShopTypeStatus($val);
             });
             
             // No of record after filtering
             $iTotalFiltered = $records["data"]->where(function($query) use ($val) {
                 $query->SearchShopTypeName($val)
-                    ->SearchShopTypeDetail($val);
+                    ->SearchShopTypeDetail($val)
+                    ->scopeSearchShopTypeStatus($val);
             })->count();
         }
         
