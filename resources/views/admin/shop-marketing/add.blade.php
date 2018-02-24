@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label for="member" class="col-md-2 control-label"> {{ trans('adminlabels.SHOP_MARKETING_MEMBER') }} </label>
                                 <div class="col-md-6">
-                                    <input id="member" type="text" class="form-control" name="member" value="{{ (old('member') ? old('member') : $shopMarketing->member) }}" autofocus>
+                                    <input id="member" type="text" class="form-control allownumericwithoutdecimal" name="member" value="{{ (old('member') ? old('member') : $shopMarketing->member) }}" autofocus>
                                 </div>
                             </div>
 
@@ -87,6 +87,13 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
 <script>
     jQuery(document).ready(function () {
+        $(".allownumericwithoutdecimal").on("keypress keyup blur",function (event) {    
+           $(this).val($(this).val().replace(/[^\d].+/, ""));
+            if ((event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        });        
+        
         $("#addUpdateShopMarketing").validate({
             ignore: ":hidden:not(select)",
             rules: {

@@ -13,6 +13,8 @@ use Redirect;
 use File;
 use Response;
 use DB;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller {
     
@@ -169,6 +171,36 @@ class UserController extends Controller {
     public function set(Request $request) {
         
         try {
+            $rule = [
+                'first_name' => 'required|max:100',
+                'middle_name' => 'required|max:100',
+                'last_name' => 'required|max:100',
+                'email' => ['required', 'email', 'max:100', Rule::unique('users', 'email')->ignore($request->id)],
+                'phone_no' => 'required|max:10|regex:/^[0-9]+$/', // 
+                'birth_date' => 'required|date|date_format:Y-m-d|before:tomorrow',
+                'gender' => 'required',
+                'address' => 'required|max:500',
+                'zipcode' => 'required|regex:/^([1-9])([0-9]){5}$/', // 
+                'married' => 'required',
+                'user_pic' => 'mimes:png,jpeg,jpg,bmp|max:10240',
+                'signature' => 'mimes:png,jpeg,jpg,bmp|max:10240',
+                'bank_name' => 'required|max:100',
+                'account_no' => 'required|regex:/^\d{9,18}$/', // 
+                'ifsc_code' => 'required|max:15|regex:/^[A-Za-z]{4}0[A-Z0-9a-z]{6}$/',
+            ];
+            
+            if(isset($request->married) && $request->married == 'yes') {
+                $rule['marriage_anniversary_date'] = 'required|date|date_format:Y-m-d|after:birth_date';
+            }
+            
+            if(!$request->id || empty($request->id) || $request->id == 0 ) {
+                $rule['user_pic'] = 'required|mimes:png,jpeg,jpg,bmp|max:10240';
+                $rule['signature'] = 'required|mimes:png,jpeg,jpg,bmp|max:10240';
+                $rule['roles'] = 'required|array|min:1';
+            }
+
+            $this->validate(request(), $rule);
+            
             DB::beginTransaction();
             $user = User::find($request->id);
 
@@ -237,5 +269,14 @@ class UserController extends Controller {
             DB::rollback();
             return Redirect::to("/admin/sanghusers/")->with('error', trans('adminmsg.COMMON_ERROR_MSG'));  
         }
+    }
+    
+    /**
+     * To logout
+     * @return type
+     */
+    public function logout() {
+        Auth::logout();
+        return Redirect::to('/');
     }
 }

@@ -41,4 +41,9 @@ return [
     'SHOP_MARKETING_ADDED_SUCCESS_MSG' => 'Shop Marketing has been created successfully.',
     'SHOP_MARKETING_NOT_EXIST' => 'Shop Marketing does not exist.',
     'SHOP_MARKETING_STATUS_UPDATED_SUCCESS' => 'Shop Marketing status updated successfully.',
+    
+    'SHOP_PACKAGE_UPDATED_SUCCESS_MSG' => 'Shop Package has been updated successfully.',
+    'SHOP_PACKAGE_CREATED_SUCCESS_MSG' => 'Shop Package has been created successfully.',
+    'SHOP_PACKAGE_NOT_EXIST' => 'Shop Package does not exist.',
+    'SHOP_PACKAGE_STATUS_UPDATED_SUCCESS' => 'Shop Package status updated successfully.',
 ];

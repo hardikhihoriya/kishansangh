@@ -205,6 +205,27 @@ class CustomerController extends Controller {
     public function set(Request $request) {
 
         try {
+            
+            $rule = [
+                'nominee_name' => 'required|max:100|regex:/^[a-zA-Z ]*$/',
+                'nominee_address' => 'required|max:500'
+            ];
+
+            if(!$request->id || empty($request->id) || $request->id == 0 ) {
+                $rule['user_id'] = 'required';
+                $rule['nominee_photo'] = 'required|mimes:png|jpeg|jpg|bmp|max:10240';
+                $rule['nominee_id_proof_front'] = 'required|mimes:png|jpeg|jpg|bmp|max:10240';
+            } else {
+                if($request->hidden_customer_pic == '') {
+                    $rule['nominee_photo'] = 'required|mimes:png|jpeg|jpg|bmp|max:10240';
+                }
+                if($request->hidden_proof_front_pic == '') {
+                    $rule['nominee_id_proof_front'] = 'required|mimes:png|jpeg|jpg|bmp|max:10240';
+                }
+            }
+            
+            $this->validate(request(), $rule);
+            
             DB::beginTransaction();
             $customer = RoleUser::find($request->id);
 

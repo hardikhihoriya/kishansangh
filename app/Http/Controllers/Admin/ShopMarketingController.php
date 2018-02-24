@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Config;
-use App\Helpers\ImageUpload;
 use App\ShopMarketing;
 use Redirect;
-use File;
 use Response;
 use DB;
 
@@ -156,6 +154,15 @@ class ShopMarketingController extends Controller {
     public function set(Request $request) {
 
         try {
+            $rule = [
+                'shop_marketing_name' => 'required|max:100',
+                'member' => 'required|regex:/^[0-9]+$/',
+                'description' => 'required|max:500',
+                'status' => 'required'
+            ];
+
+            $this->validate(request(), $rule);
+            
             DB::beginTransaction();
             $shopMarketing = ShopMarketing::find($request->id);
 

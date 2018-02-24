@@ -97,7 +97,7 @@
                             <div class="form-group">
                                 <label for="zipcode" class="col-md-2 control-label"> {{ trans('adminlabels.ZIPCODE') }} </label>
                                 <div class="col-md-6">
-                                    <input id="zipcode" type="text" class="form-control" name="zipcode" value="{{ (old('zipcode') ? old('zipcode') : $user->zipcode) }}" autofocus>
+                                    <input id="zipcode" type="text" class="form-control allownumericwithoutdecimal" name="zipcode" value="{{ (old('zipcode') ? old('zipcode') : $user->zipcode) }}" autofocus>
                                 </div>
                             </div>
 
@@ -164,7 +164,7 @@
                             <div class="form-group">
                                 <label for="account_no" class="col-md-2 control-label"> {{ trans('adminlabels.ACCOUNT_NO') }} </label>
                                 <div class="col-md-6">
-                                    <input id="account_no" type="text" class="form-control" name="account_no" value="{{ (old('account_no') ? old('account_no') : $user->account_no) }}" autofocus>
+                                    <input id="account_no" type="text" class="form-control allownumericwithoutdecimal" name="account_no" value="{{ (old('account_no') ? old('account_no') : $user->account_no) }}" autofocus>
                                 </div>
                             </div>
 
@@ -223,6 +223,8 @@
             'format': 'YYYY-MM-DD'
         });
         
+        $('#birth_date').data("DateTimePicker").maxDate(new Date());
+        
         $('#phone_no,#zipcode').on('keyup', function(){
              this.value = this.value.replace(/[^0-9\.]/g, '');
         });
@@ -231,6 +233,13 @@
             e.preventDefault();
             return false;
         });
+        
+        $(".allownumericwithoutdecimal").on("keypress keyup blur",function (event) {    
+           $(this).val($(this).val().replace(/[^\d].+/, ""));
+            if ((event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        });        
         
         // Add Anniversary Date Row
         $('input[type=radio][name=married]').change(function() {
@@ -278,7 +287,7 @@
                 },
                 phone_no: {
                     required: true,
-                    digits:true,
+                    digits: true,
                     maxlength: 10
                 },
                 birth_date: {

@@ -131,12 +131,18 @@
 <script>
     jQuery(document).ready(function () {
         var nomineePhoto = '<?php echo ($customer->id) ? ($customer->nominee_photo != null ? $customer->nominee_photo : '') : ''; ?>';
-        var nomineeIDProofFront = '<?php echo ($customer->id) ? ($customer->nominee_photo != null ? $customer->nominee_photo : '') : ''; ?>';
+        var nomineeIDProofFront = '<?php echo ($customer->id) ? ($customer->nominee_id_proof_front != null ? $customer->nominee_id_proof_front : '') : ''; ?>';
         var nomineePhotoRequired = (nomineePhoto == '' ? true : false);
         var nomineeIDProofFrontRequired = (nomineeIDProofFront == '' ? true : false);
+        var ID = '<?php echo $id; ?>';
+        var userIDRequired = (ID == '0' ? true : false);        
+        
         $("#addUpdateCustomer").validate({
             ignore: ":hidden:not(select)",
             rules: {
+                user_id: {
+                    required: userIDRequired
+                },
                 nominee_name: {
                     required: true,
                     maxlength: 100

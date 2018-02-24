@@ -179,6 +179,17 @@ class VendorController extends Controller {
     public function set(Request $request) {
 
         try {
+            $rule = [
+                'vendor_name' => 'required|max:100',
+                'vendor_address' => 'required|max:500'
+            ];
+
+            if(!$request->id || empty($request->id) || $request->id == 0 ) {
+                $rule['user_id'] = 'required';
+            }
+            
+            $this->validate(request(), $rule);
+            
             DB::beginTransaction();
             $vendor = RoleUser::find($request->id);
 

@@ -82,9 +82,15 @@
 <script type="text/javascript" src="{{ asset('js/admin/bootstrap-datetimepicker.min.js') }}"></script>
 <script>
     jQuery(document).ready(function () {
+        var ID = '<?php echo $id; ?>';
+        var userIDRequired = (ID == '0' ? true : false);        
+        
         $("#addUpdateVendor").validate({
             ignore: ":hidden:not(select)",
             rules: {
+                user_id: {
+                    required: userIDRequired
+                },
                 vendor_name: {
                     required: true,
                     maxlength: 100

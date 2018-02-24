@@ -18,7 +18,7 @@
                 </a>    
             </li>
 
-            <li class="{{ (Request::is('admin/sanghusers') || (Request::is('admin/sanghusers/new')) || Request::is('admin/customer') || Request::is('admin/customer/new') || Request::is('admin/vendor') || Request::is('admin/vendor/new')) ? 'active treeview' : 'treeview' }}">
+            <li class="{{ (strpos(Route::current()->uri(),'sanghusers') !== false || strpos(Route::current()->uri(),'customer') !== false || strpos(Route::current()->uri(),'vendor') !== false) ? 'active treeview' : 'treeview' }}">
                 <a href="{{url('admin/sanghusers')}}" style="word-break: break-word !important;white-space: initial;">
                     <i class="fa fa-diamond"></i>
                     <span>
@@ -27,18 +27,18 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ Request::is('admin/sanghusers') || (Request::is('admin/sanghusers/new')) ? 'active' : '' }}">
+                    <li class="{{ strpos(Route::current()->uri(),'sanghusers') !== false ? 'active' : '' }}">
                         <a href="{{url('admin/sanghusers')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.USERS')}}</a>
                     </li>
-                    <li class="{{ Request::is('admin/customer') || Request::is('admin/customer') ? 'active' : '' }}">
+                    <li class="{{ strpos(Route::current()->uri(),'customer') !== false ? 'active' : '' }}">
                         <a href="{{url('admin/customer')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.CUSTOMERS')}}</a>
                     </li>
-                    <li class="{{ Request::is('admin/vendor') || Request::is('admin/vendor/new') ? 'active' : '' }}">
+                    <li class="{{ strpos(Route::current()->uri(),'vendor') !== false ? 'active' : '' }}">
                         <a href="{{url('admin/vendor')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.VENDORS')}}</a>
                     </li>
                 </ul>
             </li>
-            <li class="{{ (Request::is('admin/shop-type') || (Request::is('admin/shop-type/new'))) ? 'active treeview' : 'treeview' }}">
+            <li class="{{ (strpos(Route::current()->uri(),'shop-marketing') !== false || strpos(Route::current()->uri(),'shop-type') !== false || strpos(Route::current()->uri(),'shop-package') !== false) ? 'active treeview' : 'treeview' }}">
                 <a href="{{url('admin/shop-type')}}" style="word-break: break-word !important;white-space: initial;">
                     <i class="fa fa-diamond"></i>
                     <span>
@@ -47,13 +47,18 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ Request::is('admin/shop-type') || (Request::is('admin/shop-type/new')) ? 'active' : '' }}">
+                    <li class="{{ strpos(Route::current()->uri(),'shop-type') !== false ? 'active' : '' }}">
                         <a href="{{url('admin/shop-type')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_TYPE')}}</a>
                     </li>
                 </ul>
                 <ul class="treeview-menu">
-                    <li class="{{ Request::is('admin/shop-marketing') || (Request::is('admin/shop-marketing/new')) ? 'active' : '' }}">
+                    <li class="{{ strpos(Route::current()->uri(),'shop-marketing') !== false ? 'active' : '' }}">
                         <a href="{{url('admin/shop-marketing')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_MARKETING')}}</a>
+                    </li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li class="{{ strpos(Route::current()->uri(),'shop-package') !== false ? 'active' : '' }}">
+                        <a href="{{url('admin/shop-package')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_PACKAGE')}}</a>
                     </li>
                 </ul>
             </li>

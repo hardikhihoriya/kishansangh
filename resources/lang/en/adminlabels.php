@@ -103,7 +103,7 @@ return
     'SHOP_TYPE_ICON' => 'Icon',
     'SHOP_TYPE_STATUS' => 'Status',
     
-    // Shop Type Module
+    // Shop Marketing Module
     'SHOP_MARKETING_MANAGEMENT' => 'Shop Marketing Management',
     'SHOP_MARKETING_LIST' => 'Shop Marketing List',
     'SHOP_MARKETING' => 'Shop Marketing',
@@ -113,4 +113,19 @@ return
     'SHOP_MARKETING_DESCRIPTION' => 'Detail',
     'SHOP_MARKETING_MEMBER' => 'Member',
     'SHOP_MARKETING_STATUS' => 'Status',
+
+    // Shop Package Module
+    'SHOP_PACKAGE_MANAGEMENT' => 'Shop Package Management',
+    'SHOP_PACKAGE_LIST' => 'Shop Package List',
+    'SHOP_PACKAGE' => 'Shop Package',
+    'SHOP_PACKAGES' => 'Shop Packages',
+    'ADD_SHOP_PACKAGE' => 'Add Shop Package',
+    'SHOP_PACKAGE_NAME' => 'Name',
+    'SHOP_PACKAGE_DESCRIPTION' => 'Description',
+    'SHOP_PACKAGE_BOOSTING_POINT' => 'Boosting Point',
+    'SHOP_PACKAGE_PER_DAY_SMS' => 'Per day SMS',
+    'SHOP_PACKAGE_PRICE' => 'Price',
+    'SHOP_PACKAGE_STATUS' => 'Status',
+    'SHOP_PACKAGE_MARKETING_NAME' => 'Shop Marketing',
+    'SELECT_SHOP_MARKETING' => 'Select Marketing Type',
 ];

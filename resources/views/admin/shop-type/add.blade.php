@@ -110,7 +110,8 @@
                 },
                 shop_type_icon: {
                     required: shopTypeIconRequired,
-                    extension: "png|jpeg|jpg|bmp"
+                    extension: "png|jpeg|jpg|bmp",
+                    filesize: 10240
                 },
                 status: {
                     required: true

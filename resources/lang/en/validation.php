@@ -103,6 +103,27 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'nominee_name' => [
+            'regex' => 'Nominee name should contain only character with space.',
+        ],
+        'member' => [
+            'regex' => 'Member should contain only digit.',
+        ],
+        'per_day_SMS' => [
+            'regex' => 'SMS per day should contain only digit.',
+        ],
+        'phone_no' => [
+            'regex' => 'A phone number should only contain numbers.',
+        ],
+        'zipcode' => [
+            'regex' => 'Invalid zipcode format. It must contain 6 digits and does not start with 0.',
+        ],
+        'account_no' => [
+            'regex' => 'Bank account number should be between 9 to18 digit.',
+        ],
+        'ifsc_code' => [
+            'regex' => 'Invalid IFSC code. Please verify.',
+        ],
     ],
 
     /*
