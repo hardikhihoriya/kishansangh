@@ -19,11 +19,11 @@
                 <div class="box-header">
                     <h3 class="box-title">{{trans('adminlabels.SHOP_PACKAGE_LIST')}}</h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body table-responsive">
                     <table id="listShopPackage" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{trans('adminlabels.SHOP_MARKETING_NAME')}}</th>
+                                <th>{{trans('adminlabels.SHOP_PACKAGE_MARKETING_NAME')}}</th>
                                 <th>{{trans('adminlabels.SHOP_PACKAGE_NAME')}}</th>
                                 <th>{{trans('adminlabels.SHOP_PACKAGE_BOOSTING_POINT')}}</th>
                                 <th>{{trans('adminlabels.SHOP_PACKAGE_PER_DAY_SMS')}}</th>

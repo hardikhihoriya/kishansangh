@@ -38,7 +38,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ (strpos(Route::current()->uri(),'shop-marketing') !== false || strpos(Route::current()->uri(),'shop-type') !== false || strpos(Route::current()->uri(),'shop-package') !== false) ? 'active treeview' : 'treeview' }}">
+            <li class="{{ (strpos(Route::current()->uri(),'shop-marketing') !== false || strpos(Route::current()->uri(),'shop-type') !== false || strpos(Route::current()->uri(),'shop-package') !== false || strpos(Route::current()->uri(),'shops') !== false) ? 'active treeview' : 'treeview' }}">
                 <a href="{{url('admin/shop-type')}}" style="word-break: break-word !important;white-space: initial;">
                     <i class="fa fa-diamond"></i>
                     <span>
@@ -59,6 +59,11 @@
                 <ul class="treeview-menu">
                     <li class="{{ strpos(Route::current()->uri(),'shop-package') !== false ? 'active' : '' }}">
                         <a href="{{url('admin/shop-package')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP_PACKAGE')}}</a>
+                    </li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li class="{{ strpos(Route::current()->uri(),'shops') !== false ? 'active' : '' }}">
+                        <a href="{{url('admin/shops')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.SHOP')}}</a>
                     </li>
                 </ul>
             </li>

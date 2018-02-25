@@ -69,7 +69,7 @@ class CustomerController extends Controller {
 
         $columns = array(
             0 => 'registration_no',
-            1 => 'first_name',
+            1 => 'name',
             2 => 'email',
             3 => 'phone_no',
             4 => 'birth_date',
@@ -129,9 +129,7 @@ class CustomerController extends Controller {
             'role_user.user_id',
             'role_user.customer_wallet',
             'users.email',
-            'users.first_name',
-            'users.middle_name',
-            'users.last_name',
+            DB::raw("CONCAT(users.first_name, ' ', users.middle_name, ' ', users.last_name) AS name"),
             'users.registration_no',
             'users.phone_no',
             'users.birth_date',
@@ -144,7 +142,6 @@ class CustomerController extends Controller {
             foreach ($records["data"] as $key => $_records) {
                 $edit = route('customer.edit', $_records->id);
 
-                $records["data"][$key]['name'] = $_records->first_name . (!empty($_records->middle_name) ? ' ' . $_records->middle_name : '') . (!empty($_records->last_name) ? ' ' . $_records->last_name : '');
                 $records["data"][$key]['nominee_photo'] = ($_records->nominee_photo != '' && File::exists(public_path($this->customerThumbImageUploadPath . $_records->nominee_photo)) ? '<img src="' . url($this->customerThumbImageUploadPath . $_records->nominee_photo) . '" alt="{{$_records->nominee_photo}}"  height="50" width="50">' : '<img src="' . asset('/images/default.png') . '" class="user-image" alt="Default Image" height="50" width="50">');
                 $records["data"][$key]['action'] = "&emsp;<a href='{$edit}' title='Add Customer Detail' ><span class='glyphicon glyphicon-plus'></span></a>";
                 if($records["data"][$key]['nominee_name'] != '') {

@@ -124,6 +124,12 @@ return [
         'ifsc_code' => [
             'regex' => 'Invalid IFSC code. Please verify.',
         ],
+        'shop_web_url' => [
+            'regex' => 'Web url format is not valid. Please enter valid web url.',
+        ],
+        'shop_phone_no' => [
+            'regex' => 'A phone number should only contain numbers.',
+        ],
     ],
 
     /*

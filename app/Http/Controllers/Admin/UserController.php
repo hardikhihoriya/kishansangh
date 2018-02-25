@@ -62,7 +62,7 @@ class UserController extends Controller {
         
         $columns = array( 
             0 => 'registration_no', 
-            1 => 'first_name',
+            1 => 'name',
             2 => 'email',
             3 => 'phone_no',
             4 => 'birth_date',
@@ -110,13 +110,21 @@ class UserController extends Controller {
         }
 
         //limit
-        $records["data"] = $records["data"]->take($iDisplayLength)->offset($iDisplayStart)->get();
+        $records["data"] = $records["data"]->take($iDisplayLength)->offset($iDisplayStart)->get([
+            'users.id',
+            DB::raw("CONCAT(users.first_name, ' ', users.middle_name, ' ', users.last_name) AS name"),
+            'users.registration_no',
+            'users.phone_no',
+            'users.birth_date',
+            'users.gender',
+            'users.email',
+            'users.user_pic'
+        ]);
 
         if(!empty($records["data"])) {
             foreach ($records["data"] as $key => $_records) {
                 $edit =  route('user.edit', $_records->id);
 
-                $records["data"][$key]['name'] = $_records->first_name. (!empty($_records->middle_name) ? ' '.$_records->middle_name : ''). (!empty($_records->last_name) ? ' '.$_records->last_name : '');
                 $records["data"][$key]['user_pic'] = ($_records->user_pic != '' && File::exists(public_path($this->userThumbImageUploadPath . $_records->user_pic)) ? '<img src="'.url($this->userThumbImageUploadPath.$_records->user_pic).'" alt="{{$_records->user_pic}}"  height="50" width="50">' : '<img src="'.asset('/images/default.png').'" class="user-image" alt="Default Image" height="50" width="50">');
                 $records["data"][$key]['action'] = "&emsp;<a href='{$edit}' title='Edit User' ><span class='glyphicon glyphicon-edit'></span></a>
                                                     &emsp;<a href='javascript:;' data-id='". $_records->id ."' class='btn-delete-user' title='Delete User' ><span class='glyphicon glyphicon-trash'></span></a>";
@@ -176,16 +184,16 @@ class UserController extends Controller {
                 'middle_name' => 'required|max:100',
                 'last_name' => 'required|max:100',
                 'email' => ['required', 'email', 'max:100', Rule::unique('users', 'email')->ignore($request->id)],
-                'phone_no' => 'required|max:10|regex:/^[0-9]+$/', // 
+                'phone_no' => 'required|max:10|regex:/^[0-9]+$/',
                 'birth_date' => 'required|date|date_format:Y-m-d|before:tomorrow',
                 'gender' => 'required',
                 'address' => 'required|max:500',
-                'zipcode' => 'required|regex:/^([1-9])([0-9]){5}$/', // 
+                'zipcode' => 'required|regex:/^([1-9])([0-9]){5}$/',
                 'married' => 'required',
                 'user_pic' => 'mimes:png,jpeg,jpg,bmp|max:10240',
                 'signature' => 'mimes:png,jpeg,jpg,bmp|max:10240',
                 'bank_name' => 'required|max:100',
-                'account_no' => 'required|regex:/^\d{9,18}$/', // 
+                'account_no' => 'required|regex:/^\d{9,18}$/',
                 'ifsc_code' => 'required|max:15|regex:/^[A-Za-z]{4}0[A-Z0-9a-z]{6}$/',
             ];
             

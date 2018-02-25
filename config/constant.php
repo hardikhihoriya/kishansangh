@@ -39,6 +39,11 @@ return [
     'SHOP_TYPE_THUMB_IMAGE_HEIGHT' => '500',
     'SHOP_TYPE_THUMB_IMAGE_WIDTH' => '500',   
     
+    'SHOP_ORIGINAL_IMAGE_UPLOAD_PATH' => 'uploads/shop/original/',
+    'SHOP_THUMB_IMAGE_UPLOAD_PATH' => 'uploads/shop/thumb/',
+    'SHOP_THUMB_IMAGE_HEIGHT' => '500',
+    'SHOP_THUMB_IMAGE_WIDTH' => '500',   
+    
     'STATUS' => [
         [
             'value' => 'active',
@@ -47,6 +52,37 @@ return [
         [
             'value' => 'inactive',
             'name' => 'Inactive'
+        ]
+    ],
+    
+    'DAYS' => [
+        [
+            'value' => 'monday',
+            'name' => 'Monday'
+        ],
+        [
+            'value' => 'tuesday',
+            'name' => 'Tuesday'
+        ],
+        [
+            'value' => 'wednesday',
+            'name' => 'Wednesday'
+        ],
+        [
+            'value' => 'thursday',
+            'name' => 'Thursday'
+        ],
+        [
+            'value' => 'friday',
+            'name' => 'Friday'
+        ],
+        [
+            'value' => 'saturday',
+            'name' => 'Saturday'
+        ],
+        [
+            'value' => 'sunday',
+            'name' => 'Sunday'
         ]
     ],
     

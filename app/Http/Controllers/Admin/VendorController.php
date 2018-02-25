@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Config;
-use App\Helpers\ImageUpload;
 use App\Helpers\Common;
 use App\User;
 use App\Role;
 use App\RoleUser;
 use Redirect;
-use File;
 use Response;
 use DB;
 
@@ -49,7 +47,7 @@ class VendorController extends Controller {
 
         $columns = array(
             0 => 'registration_no',
-            1 => 'first_name',
+            1 => 'name',
             2 => 'email',
             3 => 'phone_no',
             4 => 'birth_date',
@@ -109,9 +107,7 @@ class VendorController extends Controller {
             'role_user.user_id',
             'role_user.vendor_name',
             'users.email',
-            'users.first_name',
-            'users.middle_name',
-            'users.last_name',
+            DB::raw("CONCAT(users.first_name, ' ', users.middle_name, ' ', users.last_name) AS name"),
             'users.registration_no',
             'users.phone_no',
             'users.birth_date',
@@ -122,7 +118,6 @@ class VendorController extends Controller {
             foreach ($records["data"] as $key => $_records) {
                 $edit = route('vendor.edit', $_records->id);
 
-                $records["data"][$key]['name'] = $_records->first_name . (!empty($_records->middle_name) ? ' ' . $_records->middle_name : '') . (!empty($_records->last_name) ? ' ' . $_records->last_name : '');
                 $records["data"][$key]['action'] = "&emsp;<a href='{$edit}' title='Add Customer Detail' ><span class='glyphicon glyphicon-plus'></span></a>";
                 if ($records["data"][$key]['vendor_name'] != '') {
                     $records["data"][$key]['action'] = "&emsp;<a href='{$edit}' title='Edit Vendor Detail' ><span class='glyphicon glyphicon-edit'></span></a>

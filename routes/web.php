@@ -79,4 +79,10 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::any('/admin/shop-package/shop-package-{id}', array('as' => 'shop-package.edit', 'uses' => 'Admin\ShopPackageController@update'));
     Route::post('/admin/shop-package/set', 'Admin\ShopPackageController@set');
 
+    // Shop Module
+    Route::get('/admin/shops', 'Admin\ShopController@index');
+    Route::post('/admin/shops/list-ajax', 'Admin\ShopController@listAjax');
+    Route::any('/admin/shops/new', 'Admin\ShopController@create');
+    Route::any('/admin/shops/shops-{id}', array('as' => 'shop.edit', 'uses' => 'Admin\ShopController@update'));
+    Route::post('/admin/shops/set', 'Admin\ShopController@set');
 });

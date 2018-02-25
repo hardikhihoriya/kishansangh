@@ -19,7 +19,7 @@
                 <div class="box-header">
                     <h3 class="box-title">{{trans('adminlabels.CUSTOMER_LIST')}}</h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body table-responsive">
                     <table id="listCustomer" class="table table-bordered table-striped">
                         <thead>
                             <tr>

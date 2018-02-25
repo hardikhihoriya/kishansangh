@@ -46,4 +46,10 @@ return [
     'SHOP_PACKAGE_CREATED_SUCCESS_MSG' => 'Shop Package has been created successfully.',
     'SHOP_PACKAGE_NOT_EXIST' => 'Shop Package does not exist.',
     'SHOP_PACKAGE_STATUS_UPDATED_SUCCESS' => 'Shop Package status updated successfully.',
+    
+    'SHOP_UPDATED_SUCCESS_MSG' => 'Shop has been updated successfully.',
+    'SHOP_CREATED_SUCCESS_MSG' => 'Shop has been created successfully.',
+    'SHOP_NOT_EXIST' => 'Shop does not exist.',
+    'SHOP_STATUS_UPDATED_SUCCESS' => 'Shop status updated successfully.',
+    'SHOP_TIME_REQUIRED' => 'Please select time for atleast one day.',
 ];
