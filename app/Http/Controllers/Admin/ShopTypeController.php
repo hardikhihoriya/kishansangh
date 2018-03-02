@@ -162,12 +162,12 @@ class ShopTypeController extends Controller
             $rule = [
                 'shop_type_name' => 'required|max:100',
                 'shop_type_detail' => 'required|max:500',
-                'shop_type_icon' => 'mimes:png|jpeg|jpg|bmp|max:10240',
+                'shop_type_icon' => 'mimes:png,jpeg,jpg,bmp|max:10240',
                 'status' => 'required'
             ];
 
             if(!$request->id || empty($request->id) || $request->id == 0 ) {
-                $rule['shop_type_icon'] = 'required|mimes:png|jpeg|jpg|bmp|max:10240';
+                $rule['shop_type_icon'] = 'required|mimes:png,jpeg,jpg,bmp|max:10240';
             }
             
             $this->validate(request(), $rule);

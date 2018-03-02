@@ -33,12 +33,12 @@ return [
     'VENDOR_NOT_EXIST' => 'Vendor does not exist.',
     
     'SHOP_TYPE_UPDATED_SUCCESS_MSG' => 'Shop Type has been updated successfully.',
-    'SHOP_TYPE_ADDED_SUCCESS_MSG' => 'Shop Type has been created successfully.',
+    'SHOP_TYPE_CREATED_SUCCESS_MSG' => 'Shop Type has been created successfully.',
     'SHOP_TYPE_NOT_EXIST' => 'Shop Type does not exist.',
     'SHOP_TYPE_STATUS_UPDATED_SUCCESS' => 'Shop Type status updated successfully.',
     
     'SHOP_MARKETING_UPDATED_SUCCESS_MSG' => 'Shop Marketing has been updated successfully.',
-    'SHOP_MARKETING_ADDED_SUCCESS_MSG' => 'Shop Marketing has been created successfully.',
+    'SHOP_MARKETING_CREATED_SUCCESS_MSG' => 'Shop Marketing has been created successfully.',
     'SHOP_MARKETING_NOT_EXIST' => 'Shop Marketing does not exist.',
     'SHOP_MARKETING_STATUS_UPDATED_SUCCESS' => 'Shop Marketing status updated successfully.',
     

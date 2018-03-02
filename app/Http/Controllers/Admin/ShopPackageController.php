@@ -174,7 +174,7 @@ class ShopPackageController extends Controller {
                 'boosting_point' => 'required|numeric',
                 'per_day_SMS' => 'required|regex:/^[0-9]+$/',
                 'price' => 'required|numeric',
-                'description' => 'required|max:500',
+                'package_description' => 'required|max:500',
                 'status' => 'required'
             ];
 
