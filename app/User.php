@@ -25,7 +25,7 @@ class User extends Authenticatable
     protected $hidden = [ 'password', 'remember_token' ];
 
     protected $table = "users";
-    
+
     /**
      * Relations between users and roles table
      * It's Many-To-Many Relations

@@ -13,8 +13,11 @@ use Redirect;
 use File;
 use Response;
 use DB;
+use Event;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use App\Events\UserRegistrationMailEvent;
+use App\Events\UserRegistrationMessageEvent;
 
 class UserController extends Controller {
     
@@ -261,7 +264,8 @@ class UserController extends Controller {
             } else {
                 $userModel = new User();
                 $postData['registration_no'] = $userModel->generateRegistrationNo($postData);
-                $postData['password'] = bcrypt(str_random(8));
+                $password = str_random(8);
+                $postData['password'] = bcrypt($password);
                 $postData['marriage_anniversary_date'] = ($postData['married'] == 'no' ? null : $postData['marriage_anniversary_date']);
                 
                 $user = new User(array_filter($postData));
@@ -270,6 +274,8 @@ class UserController extends Controller {
                 foreach ($request->roles as $_roles) {
                     $user->roles()->attach($_roles);
                 }
+                Event::fire(new UserRegistrationMailEvent($user, $password));
+                Event::fire(new UserRegistrationMessageEvent($user, $password));
                 DB::commit();
                 return Redirect::to("/admin/sanghusers/")->with('success', trans('adminmsg.USER_CREATED_SUCCESS_MSG'));  
             }

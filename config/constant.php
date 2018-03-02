@@ -86,4 +86,6 @@ return [
         ]
     ],
     
+    'MESSAGE_API_KEY' => 'k7+YGgo4hYI-cUMgGgKjXsf3SqvQR1Q38ypQ2I0HZ5',
+    
 ];

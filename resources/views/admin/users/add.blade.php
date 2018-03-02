@@ -215,7 +215,7 @@
 
 @section('script')
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
-<script type="text/javascript" src="{{ asset('js/admin/moment-with-locales.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
 <script type="text/javascript" src="{{ asset('js/admin/bootstrap-datetimepicker.min.js') }}"></script>
 <script>
     jQuery(document).ready(function () {

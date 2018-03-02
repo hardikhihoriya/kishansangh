@@ -52,6 +52,7 @@
         @yield('footer')
         <script src="{{asset('css/admin/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
         <script src="{{asset('css/admin/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/admin/Moment.js')}}"></script>
         <script src="{{asset('js/admin/jquery.validate.min.js')}}"></script>
         <!-- <script src="{{asset('css/admin/plugins/iCheck/icheck.min.js')}}"></script> -->
         @yield('script')
