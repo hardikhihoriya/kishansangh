@@ -181,7 +181,7 @@
                             <div class="form-group">
                                 <label for="roles" class="col-md-2 control-label"> {{ trans('adminlabels.ASSIGN_ROLES') }} </label>
                                 <div class="col-md-6">
-                                    <select class="form-control chosen" id="roles" name="roles[]" multiple="multiple">
+                                    <select data-placeholder="Choose a Role..." multiple id="roles" name="roles[]" class="form-control  chosen-select">                                    
                                         <?php foreach ($roles as $_roles) { ?>
                                             <option value="{{$_roles->id}}"  >{{$_roles->name}}</option>
                                         <?php } ?>
@@ -222,7 +222,7 @@
         $('#birth_date,#marriage_anniversary_date').datetimepicker({
             'format': 'YYYY-MM-DD'
         });
-        
+         $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"}); 
         $('#birth_date').data("DateTimePicker").maxDate(new Date());
         
         $('#phone_no,#zipcode').on('keyup', function(){

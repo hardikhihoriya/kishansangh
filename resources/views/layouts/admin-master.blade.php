@@ -10,14 +10,17 @@
         <meta name="description" content="" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{asset('css/admin/bootstrap/css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">-->
         <!-- DataTables -->
+        <link rel="stylesheet" href="{{asset('css/admin/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/admin/ionicons.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/admin/plugins/datatables/dataTables.bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('css/admin/dist/css/AdminLTE.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/admin/plugins/iCheck/square/blue.css')}}">
         <link rel="stylesheet" href="{{asset('css/admin/dist/css/skins/_all-skins.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/admin/bootstrap-multiselect.css')}}">
+        <link rel="stylesheet" href="{{asset('css/admin/bootstrap-multiselect.css')}}">        
+        <link rel="stylesheet" href="{{asset('css/admin/chosen.css')}}">
         <link rel="stylesheet" href="{{asset('css/admin/custom.css')}}">
         @yield('header')
     </head>
@@ -41,7 +44,7 @@
                     </div>
                 </div>
                 @endif
-                
+
                 @if ($message = Session::get('error'))
                 <div class="row error-msg">
                     <div class="col-md-12">
@@ -55,7 +58,7 @@
                     </div>
                 </div>
                 @endif
-                
+
                 @if (count($errors) > 0)
                 <div class="row error-msg">
                     <div class="col-md-12">
@@ -99,6 +102,8 @@
         <script src="{{asset('css/admin/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
         <script src="{{asset('css/admin/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/admin/bootstrap-multiselect.js')}}"></script>
+        <script src="{{asset('js/admin/bootstrap-datetimepicker.min.js')}}"></script>
+        <script src="{{asset('js/admin/chosen.jquery.js')}}"></script>
         <!-- <script src="{{asset('css/admin/plugins/iCheck/icheck.min.js')}}"></script> -->
         <script src="{{asset('css/admin/plugins/fastclick/fastclick.js')}}"></script>
         <script src="{{asset('css/admin/dist/js/app.min.js')}}"></script>
@@ -111,9 +116,9 @@
         <script src="{{ asset('plugins/bootbox/bootbox.min.js') }}" type="text/javascript"></script>
         @yield('script')
         <script>
-            $(".is_number").on('keyup', function () {
-                this.value = this.value.replace(/[^0-9]/gi, '');
-            });
+$(".is_number").on('keyup', function () {
+    this.value = this.value.replace(/[^0-9]/gi, '');
+});
         </script>
     </body>
 </html>
