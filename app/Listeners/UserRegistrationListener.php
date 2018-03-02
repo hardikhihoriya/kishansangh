@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 use Config;
+use Log;
 
 class UserRegistrationListener
 {
@@ -28,7 +29,26 @@ class UserRegistrationListener
      * @return void
      */
     public function userRegistrationMail(UserRegistrationMailEvent $event) {
-        
+        try {
+            $data = [
+                'email' => $event->user->email,
+                'name' => $event->user->first_name . ($event->user->middle_name && !empty($event->user->middle_name) ? ' '.$event->user->middle_name : '') . ($event->user->last_name && !empty($event->user->last_name) ? ' '.$event->user->last_name : ''),
+                'password' => $event->password
+            ];
+            
+            $senderData = [
+                'email' => $event->user->email,
+                'name' => $event->user->first_name . ($event->user->middle_name && !empty($event->user->middle_name) ? ' '.$event->user->middle_name : '') . ($event->user->last_name && !empty($event->user->last_name) ? ' '.$event->user->last_name : '')
+            ];
+            
+            Mail::send('emails.userregistered', $data, function($message) use ($senderData) {
+                $message->to($senderData['email'], $senderData['name']);
+                $message->subject('Welcome to Khedut Pay!');
+            });
+            Log::info("Mail sent successfully to user with #{$event->user->id}");
+        } catch (Exception $e) {
+            Log::info("Error while sendig mail to user with #{$event->user->id}");
+        }
     }
 
     /**
@@ -57,6 +77,7 @@ class UserRegistrationListener
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_exec($ch);
             curl_close($ch);
+            Log::info("Message sent successfully to user with #{$event->user->id}");
         } catch (Exception $e) {
             Log::info("Error while sendig message to user with #{$event->user->id}");
         }
