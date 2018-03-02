@@ -78,8 +78,8 @@ class ShopController extends Controller {
         $search = $request->search;
         $records["data"] = array();
 
-        //getting records for the users table
-        $iTotalRecords = count(Shop::getShop());
+        //getting records from the shop table
+        $iTotalRecords = Shop::getShopCount();
         $iTotalFiltered = $iTotalRecords;
         $iDisplayLength = intval($request->length) <= 0 ? $iTotalRecords : intval($request->length);
         $iDisplayStart = intval($request->start);

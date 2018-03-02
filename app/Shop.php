@@ -21,6 +21,10 @@ class Shop extends Model
         return Shop::where('status', '<>', Config::get('constant.DELETED_FLAG'))->get();
     }
 
+    public static function getShopCount() {
+        return Shop::where('status', '<>', Config::get('constant.DELETED_FLAG'))->count();
+    }
+
     public function scopeSearchShopRegistrationNo($query, $value) {
         return $query->Where('shop_registration_no', 'LIKE', "%$value%");
     }

@@ -151,4 +151,16 @@ return
     'SHOP_PHONE_NUMBER' => 'Shop Contact Number',
     'SELECT_SHOP_TYPE' => 'Select Shop Type',
     'SELECT_SHOP_PACKAGE' => 'Select Shop Package',
+
+    // Product Module
+    'PRODUCT_MANAGEMENT' => 'Product Management',
+    'PRODUCT_LIST' => 'Product List',
+    'PRODUCT' => 'Product',
+    'PRODUCTS' => 'Products',
+    'ADD_PRODUCT' => 'Add Product',
+    'PRODUCT_NAME' => 'Product Name',
+    'PRODUCT_TYPE' => 'Product Type',
+    'PRODUCT_YEAR' => 'Product Year',
+    'PRODUCT_DESCRIPTION' => 'Product Description',
+    'PRODUCT_STATUS' => 'Status',
 ];

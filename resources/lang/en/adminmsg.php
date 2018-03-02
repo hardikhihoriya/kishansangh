@@ -52,4 +52,9 @@ return [
     'SHOP_NOT_EXIST' => 'Shop does not exist.',
     'SHOP_STATUS_UPDATED_SUCCESS' => 'Shop status updated successfully.',
     'SHOP_TIME_REQUIRED' => 'Please select time for atleast one day.',
+    
+    'PRODUCT_UPDATED_SUCCESS_MSG' => 'Product has been updated successfully.',
+    'PRODUCT_CREATED_SUCCESS_MSG' => 'Product has been created successfully.',
+    'PRODUCT_NOT_EXIST' => 'Product does not exist.',
+    'PRODUCT_STATUS_UPDATED_SUCCESS' => 'Product status updated successfully.',
 ];

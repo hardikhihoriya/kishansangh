@@ -22,6 +22,10 @@ class ShopType extends Model
         return ShopType::where('status', '<>',Config::get('constant.DELETED_FLAG'))->get();
     }
     
+    public static function getShopTypeCount() {
+        return ShopType::where('status', '<>',Config::get('constant.DELETED_FLAG'))->count();
+    }
+
     public function scopeSearchShopTypeName($query, $value) {
         return $query->Where('shop_type_name' , 'LIKE' , "%$value%");
     }

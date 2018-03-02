@@ -67,6 +67,16 @@
                     </li>
                 </ul>
             </li>
+            
+            <li class="{{ strpos(Route::current()->uri(),'product') !== false ? 'active' : '' }}">
+                <a href="{{url('admin/product')}}">
+                    <i class="fa fa-dashboard"></i>
+                    <span>
+                        {{trans('adminlabels.PRODUCT_MANAGEMENT')}}
+                    </span>
+                </a>    
+            </li>
+            
         </ul>
     </section>
 </aside>

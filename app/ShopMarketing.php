@@ -21,6 +21,10 @@ class ShopMarketing extends Model {
         return ShopMarketing::where('status', '<>', Config::get('constant.DELETED_FLAG'))->get();
     }
 
+    public static function getShopMarketingCount() {
+        return ShopMarketing::where('status', '<>', Config::get('constant.DELETED_FLAG'))->count();
+    }
+
     public function scopeSearchShopMarketingName($query, $value) {
         return $query->Where('shop_marketing_name', 'LIKE', "%$value%");
     }

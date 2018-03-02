@@ -60,7 +60,7 @@ class ShopMarketingController extends Controller {
         $records["data"] = array();
 
         //getting records for the users table
-        $iTotalRecords = count(ShopMarketing::getShopMarketing());
+        $iTotalRecords = ShopMarketing::getShopMarketingCount();
         $iTotalFiltered = $iTotalRecords;
         $iDisplayLength = intval($request->length) <= 0 ? $iTotalRecords : intval($request->length);
         $iDisplayStart = intval($request->start);

@@ -85,4 +85,12 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::any('/admin/shops/new', 'Admin\ShopController@create');
     Route::any('/admin/shops/shops-{id}', array('as' => 'shop.edit', 'uses' => 'Admin\ShopController@update'));
     Route::post('/admin/shops/set', 'Admin\ShopController@set');
+
+    // Product Module
+    Route::get('/admin/product', 'Admin\ProductController@index');
+    Route::post('/admin/product/list-ajax', 'Admin\ProductController@listAjax');
+    Route::any('/admin/product/new', 'Admin\ProductController@create');
+    Route::any('/admin/product/product-{id}', array('as' => 'product.edit', 'uses' => 'Admin\ProductController@update'));
+    Route::post('/admin/product/set', 'Admin\ProductController@set');
+    
 });

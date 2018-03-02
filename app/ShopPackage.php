@@ -21,6 +21,10 @@ class ShopPackage extends Model {
         return ShopPackage::where('status', '<>', Config::get('constant.DELETED_FLAG'))->get();
     }
 
+    public static function getShopPackageCount() {
+        return ShopPackage::where('status', '<>', Config::get('constant.DELETED_FLAG'))->count();
+    }
+    
     public function scopeSearchShopPackageName($query, $value) {
         return $query->Where('package_name', 'LIKE', "%$value%");
     }
