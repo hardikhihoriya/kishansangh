@@ -93,4 +93,10 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::any('/admin/product/product-{id}', array('as' => 'product.edit', 'uses' => 'Admin\ProductController@update'));
     Route::post('/admin/product/set', 'Admin\ProductController@set');
     
+    // Investment Package Module
+    Route::get('/admin/investment-package', 'Admin\InvestmentPackageController@index');
+    Route::post('/admin/investment-package/list-ajax', 'Admin\InvestmentPackageController@listAjax');
+    Route::any('/admin/investment-package/new', 'Admin\InvestmentPackageController@create');
+    Route::any('/admin/investment-package/investment-package-{id}', array('as' => 'investment-package.edit', 'uses' => 'Admin\InvestmentPackageController@update'));
+    Route::post('/admin/investment-package/set', 'Admin\InvestmentPackageController@set');
 });

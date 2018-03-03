@@ -163,4 +163,19 @@ return
     'PRODUCT_YEAR' => 'Product Year',
     'PRODUCT_DESCRIPTION' => 'Product Description',
     'PRODUCT_STATUS' => 'Status',
+
+    // Product Module
+    'INVESTMENT_MANAGEMENT' => 'Investment Management',
+    'INVESTMENT_PACKAGE_MANAGEMENT' => 'Package Management',
+    'INVESTMENT_PACKAGE_LIST' => 'Package List',
+    'INVESTMENT_PACKAGE' => 'Package',
+    'INVESTMENT_PACKAGES' => 'Packages',
+    'ADD_INVESTMENT_PACKAGE' => 'Add Package',
+    'INVESTMENT_PACKAGE_NAME' => 'Package Name',
+    'INVESTMENT_PACKAGE_YEAR' => 'Package Year',
+    'INVESTMENT_PACKAGE_SIZE' => 'Size',
+    'INVESTMENT_PACKAGE_DURATION' => 'Duration',
+    'INVESTMENT_PACKAGE_PRICE' => 'Price',
+    'INVESTMENT_PACKAGE_DESCRIPTION' => 'Description',
+    'INVESTMENT_PACKAGE_STATUS' => 'Status',
 ];

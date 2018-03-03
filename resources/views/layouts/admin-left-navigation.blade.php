@@ -38,6 +38,7 @@
                     </li>
                 </ul>
             </li>
+
             <li class="{{ (strpos(Route::current()->uri(),'shop-marketing') !== false || strpos(Route::current()->uri(),'shop-type') !== false || strpos(Route::current()->uri(),'shop-package') !== false || strpos(Route::current()->uri(),'shops') !== false) ? 'active treeview' : 'treeview' }}">
                 <a href="{{url('admin/shop-type')}}" style="word-break: break-word !important;white-space: initial;">
                     <i class="fa fa-diamond"></i>
@@ -77,6 +78,20 @@
                 </a>    
             </li>
             
+            <li class="{{ (strpos(Route::current()->uri(),'investment-package') !== false) ? 'active treeview' : 'treeview' }}">
+                <a href="{{url('admin/investment-package')}}" style="word-break: break-word !important;white-space: initial;">
+                    <i class="fa fa-diamond"></i>
+                    <span>
+                        {{trans('adminlabels.INVESTMENT_MANAGEMENT')}}
+                    </span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ strpos(Route::current()->uri(),'investment-package') !== false ? 'active' : '' }}">
+                        <a href="{{url('admin/investment-package')}}"><i class="fa fa-circle-o"></i>{{trans('adminlabels.INVESTMENT_PACKAGE')}}</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </section>
 </aside>

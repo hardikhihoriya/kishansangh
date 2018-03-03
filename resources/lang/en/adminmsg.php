@@ -57,4 +57,9 @@ return [
     'PRODUCT_CREATED_SUCCESS_MSG' => 'Product has been created successfully.',
     'PRODUCT_NOT_EXIST' => 'Product does not exist.',
     'PRODUCT_STATUS_UPDATED_SUCCESS' => 'Product status updated successfully.',
+    
+    'INVESTMENT_PACKAGE_UPDATED_SUCCESS_MSG' => 'Package has been updated successfully.',
+    'INVESTMENT_PACKAGE_CREATED_SUCCESS_MSG' => 'Package has been created successfully.',
+    'INVESTMENT_PACKAGE_NOT_EXIST' => 'Package does not exist.',
+    'INVESTMENT_PACKAGE_STATUS_UPDATED_SUCCESS' => 'Package status updated successfully.',
 ];
